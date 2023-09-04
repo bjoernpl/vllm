@@ -42,7 +42,7 @@ class ModelConfig:
     def __init__(self, model: str, tokenizer: str, tokenizer_mode: str,
                  trust_remote_code: bool, download_dir: Optional[str],
                  use_np_weights: bool, use_dummy_weights: bool, dtype: str,
-                 seed: int, rope_sclaing: Optional[dict]) -> None:
+                 seed: int, rope_scaling: Optional[dict]) -> None:
         self.model = model
         self.tokenizer = tokenizer
         self.tokenizer_mode = tokenizer_mode
@@ -52,7 +52,7 @@ class ModelConfig:
         self.use_dummy_weights = use_dummy_weights
         self.seed = seed
 
-        self.hf_config = get_config(model, trust_remote_code, rope_sclaing)
+        self.hf_config = get_config(model, trust_remote_code, rope_scaling)
         self.dtype = _get_and_verify_dtype(self.hf_config, dtype)
         self._verify_tokenizer_mode()
 
